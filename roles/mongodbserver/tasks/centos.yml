@@ -13,4 +13,4 @@
     src: mongodc.j2
     dest: /etc/mongod.conf
    notify:
-   - start
+   - restart mongodb

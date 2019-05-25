@@ -5,5 +5,52 @@
 - include_tasks: centos.yml
   when: ansible_os_family == 'RedHat'
 
-- include_tasks: mongodb_user.yml
-  when: ansible_os_family == 'RedHat'
+- name: Create admin user for all database
+  mongodb_user:
+      database: admin
+      name: "myUserAdmin"
+      password: "abc123"
+      state: present
+      login_port: "27017"
+      roles: "userAdminAnyDatabase"
+      login_database: admin
+      login_user: "myUserAdmin"
+      login_password: "abc123"
+
+- name: Create user for all database
+  mongodb_user:
+    database: admin
+    name: "john"
+    password: "123456"
+    state: present
+    login_port: "27017"
+    roles: "readWriteAnyDatabase"
+
+- name: Create a database user fot keepcalm
+  mongodb_user:
+    database: keepcalm
+    name: jack
+    password: "Welcome1_"
+    state: present
+    login_database: admin
+    login_user: "myUserAdmin"
+    login_password: "abc123"
+  # Define more users with various specific roles (if not defined, no roles is assigned, and the user will be added via pre mongo 2.2 style)
+  mongodb_user:
+    database: keepcalm
+    name: ben
+    password: "12345"
+    roles: read
+    state: present
+    login_database: admin
+    login_user: "myUserAdmin"
+    login_password: "abc123"
+  mongodb_user:
+    database: keepcalm
+    name: jim
+    password: "1234"
+    roles: readWrite,dbAdmin,userAdmin
+    state: present
+    login_database: admin
+    login_user: "myUserAdmin"
+    login_password: "abc123"
