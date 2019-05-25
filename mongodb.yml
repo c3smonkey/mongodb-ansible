@@ -1,0 +1,13 @@
+---
+- name: Install MongoDb Server
+  hosts: all
+  gather_facts: true
+  become: true
+  become_user: root
+  become_method: sudo
+
+  roles:
+     - {
+        role: mongodbserver,
+        tags: [ 'mongodbserver']
+      }

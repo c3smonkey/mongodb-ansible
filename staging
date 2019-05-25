@@ -1,0 +1,9 @@
+# A place to put your stage hosts
+# Examples:
+#
+# localhost ansible_connection=local ansible_python_interpreter=/usr/bin/python2.7
+# beowolf.example.com ansible_ssh_user=root
+
+
+[all]
+dev.keepcalm.ch
