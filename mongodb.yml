@@ -7,7 +7,5 @@
   become_method: sudo
 
   roles:
-     - {
-        role: mongodbserver,
-        tags: [ 'mongodbserver']
-      }
+     - { role: mongodb.server, tags: [ 'server']}
+     - { role: mongodb.user, tags: [ 'user']}
