@@ -1,13 +1,4 @@
 ---
- # - name:          Create admin user
- #   mongodb_user:
- #      database:   admin
- #      name:       "{{ mongodb_user_admin_name }}"
- #      password:   "{{ mongodb_user_admin_password }}"
- #      update_password: on_create
- #      roles:      userAdminAnyDatabase
-
-
 - name:             Create admin user for all database
   mongodb_user:
     database :      "admin"
@@ -17,62 +8,37 @@
     roles:          "{{ mongodb_user_admin_roles }}"
   ignore_errors:    no
 
-- name:             Create user {{ mongodb_user_name }} for all database
+- name:             Create users for {{ mongodb_foobar_user_database }} database
   mongodb_user:
-    database :      "admin"
-    name :          "{{ mongodb_user_name }}"
-    password:       "{{ mongodb_user_password }}"
+    database :      "{{ mongodb_foobar_user_database }}"
+    name :          "{{ mongodb_foobar_user_name }}"
+    password:       "{{ mongodb_foobar_user_password }}"
     state:          present
-    roles:          "{{ mongodb_user_roles }}"
+    roles:          "{{ mongodb_foobar_user_roles }}"
     login_database: "admin"
     login_port:     "{{ mongodb_login_port }}"
     login_user:     "{{ mongodb_user_admin_name }}"
     login_password: "{{ mongodb_user_admin_password }}"
   ignore_errors:  no
 
+  mongodb_user:
+    database:     "{{ mongodb_foobar_user_database }}"
+    name:         john
+    password:     "12345"
+    roles:        read
+    state:        present
+    login_database: "admin"
+    login_port:     "{{ mongodb_login_port }}"
+    login_user:     "{{ mongodb_user_admin_name }}"
+    login_password: "{{ mongodb_user_admin_password }}"
 
-
-
-
-# - name:           Create admin user {{ mongodb_user_admin_name }} for all database
-#   mongodb_user:
-#       database:   "{{ mongodb_admin_database }}"
-#       name:       "{{ mongodb_user_admin_name}}"
-#       password:   "{{ mongodb_user_admin_password }}"
-#       roles:      "{{ mongodb_user_admin_roles }}"
-#       login_port: "{{ mongodb_login_port }}"
-#       login_database: "{{ mongodb_admin_database }}"
-#       login_user: "{{ mongodb_user_admin_name }}"
-#       login_password: "{{ mongodb_user_admin_password }}"
-#       state:      present
-#
-#
-
-# - name:           Create a database user fot keepcalm
-#   mongodb_user:
-#     database:     keepcalm
-#     name:         jack
-#     password:     "Welcome1_"
-#     state:        present
-#     login_database: admin
-#     login_user:   "myUserAdmin"
-#     login_password: "abc123"
-#   # Define more users with various specific roles (if not defined, no roles is assigned, and the user will be added via pre mongo 2.2 style)
-#   mongodb_user:
-#     database:     keepcalm
-#     name:         ben
-#     password:     "12345"
-#     roles:        read
-#     state:        present
-#     login_database: admin
-#     login_user:   "myUserAdmin"
-#     login_password: "abc123"
-#   mongodb_user:
-#     database:     keepcalm
-#     name:         jim
-#     password:     "1234"
-#     roles:        readWrite,dbAdmin,userAdmin
-#     state:        present
-#     login_database: admin
-#     login_user:   "myUserAdmin"
-#     login_password: "abc123"
+  mongodb_user:
+    database:     "{{ mongodb_foobar_user_database }}"
+    name:         doe
+    password:     "12345"
+    roles:        readWrite,dbAdmin,userAdmin
+    state:        present
+    login_database: "admin"
+    login_port:     "{{ mongodb_login_port }}"
+    login_user:     "{{ mongodb_user_admin_name }}"
+    login_password: "{{ mongodb_user_admin_password }}"

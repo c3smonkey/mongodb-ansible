@@ -18,6 +18,39 @@ ansible-playbook -i staging mongodb.yml -t user -u root -vv
 ```
 
 
+Test installation
+====
+
+Login to the server
+--
+```
+ssh root@mongo.keepcal.ch
+```
+
+Login to the database
+--
+```
+mongo --port 27017 -u "admin" -p --authenticationDatabase "admin"
+```
+
+Show databases
+--
+```
+show databases
+```
+
+List all databases
+--
+```
+db.adminCommand( { listDatabases: 1 } )
+```
+
+
+
+
+
+
+
 
 Hetzner
 ==
