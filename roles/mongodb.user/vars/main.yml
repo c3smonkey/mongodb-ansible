@@ -1,13 +1,13 @@
 ---
 # vars file
-mongodb_login_port:          "27017"
-mongodb_admin_database:      "admin"
+mongodb_login_port:            "27017"
+mongodb_admin_database:        "admin"
 
-mongodb_user_admin_name:     "admin"
-mongodb_user_admin_password: "adminPassword"
-mongodb_user_admin_roles:    "userAdminAnyDatabase"
+mongodb_user_admin_name:       "admin"
+mongodb_user_admin_password:   "adminPassword"
+mongodb_user_admin_roles:      "userAdminAnyDatabase"
 
-mongodb_foobar_user_database:       "foobar_db"
-mongodb_foobar_user_name:        "user"
-mongodb_foobar_user_password:    "Welcome1_"
-mongodb_foobar_user_roles:       "readWrite"
+mongodb_foobar_user_database:  "foobar_db"
+mongodb_foobar_user_name:      "user"
+mongodb_foobar_user_password:  "Welcome1_"
+mongodb_foobar_user_roles:     "readWrite"
