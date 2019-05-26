@@ -1,2 +1,12 @@
 ---
-# vars file 
+# vars file
+mongodb_login_port:          "27017"
+mongodb_admin_database:      "admin"
+
+mongodb_user_admin_name:     "admin"
+mongodb_user_admin_password: "adminPassword"
+mongodb_user_admin_roles:    "userAdminAnyDatabase"
+
+mongodb_user_name:           "user"
+mongodb_user_password:       "Welcome1_"
+mongodb_user_roles:           "readWriteAnyDatabase"

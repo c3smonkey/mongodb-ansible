@@ -2,7 +2,7 @@
 dependencies: []
 
 galaxy_info:
-  author: marzelwidmer
+  author: Marcel Widmer
   description: MongoDB for Linux.
   company: "Midwestern Mac, LLC"
   license: "license (BSD, MIT)"
@@ -13,3 +13,4 @@ galaxy_info:
     - web
     - system
     - server
+    - mongodb

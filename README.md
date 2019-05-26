@@ -35,11 +35,16 @@ vi ~/.ssh/known_hosts
 SSH to Hetzner
 --
 ```
-sshhc root@dev.keepcalm.ch
+sshhc root@mongo.keepcalm.ch
 ```
 
 Check MongoDB Service _mongod_
 --
 ```
 service mongod status
+```
+Check Network Bindings
+--
+```
+netstat -tnlp
 ```

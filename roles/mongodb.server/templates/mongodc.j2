@@ -26,9 +26,8 @@ processManagement:
 
 # network interfaces
 net:
-  port: 27017
-  bindIp: {{ bind }}  # Listen to local interface only, comment to listen on all interfaces.
-
+  port: {{ mongodb_port }}
+  bindIp: {{ mongodb_bind }}  # Listen to local interface only, comment to listen on all interfaces.
 
 #security:
 #  authorization: enabled
